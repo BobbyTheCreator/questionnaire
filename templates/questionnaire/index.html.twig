@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Questionnaire questions</title>
+</head>
+<body>
+<p>Select your answers:</p>
+
+<form action="/questionnaire" method="POST">
+    {% for question in questions %}
+        <div style="margin-bottom: 20px;">
+            <div style="margin-bottom: 5px">{{ question.text }}</div>
+            <select name="{{ question.id }}[]" multiple>
+                {% for questionAnswerOption in question.questionAnswerOptions %}
+                    <option value="{{ questionAnswerOption.id }}">{{ questionAnswerOption.text }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endfor %}
+
+    <input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

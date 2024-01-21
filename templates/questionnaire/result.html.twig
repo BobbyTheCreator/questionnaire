@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Questionnaire result</title>
+</head>
+<body>
+<p>Your result:</p>
+
+<div>Right answered questions:</div>
+{% for rightAnswer in result.rightAnswers %}
+    <div style="margin-bottom: 10px;">
+        <div>question:</div>
+        <div>{{ rightAnswer.question.text }}</div>
+        <div>answers:</div>
+        {% for questionAnswerOption in rightAnswer.questionAnswerOptions %}
+            <div>{{ questionAnswerOption.text }}</div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+<div style="margin-top: 40px">Wrong answered questions:</div>
+{% for wrongAnswer in result.wrongAnswers %}
+    <div style="margin-bottom: 10px;">
+        <div>question:</div>
+        <div>{{ wrongAnswer.question.text }}</div>
+        <div>answers:</div>
+        {% for questionAnswerOption in wrongAnswer.questionAnswerOptions %}
+            <div>{{ questionAnswerOption.text }}</div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+<a href="/questionnaire" style="margin-top: 70px">Did I ever tell you what the definition of insanity is?.. Start one
+    more time</a>
+
+</body>
+</html>
