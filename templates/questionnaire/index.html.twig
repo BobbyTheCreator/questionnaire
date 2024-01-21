@@ -3,13 +3,13 @@
     <title>Questionnaire questions</title>
 </head>
 <body>
-<p>Select your answers:</p>
+<p>Select your answers (ctrl for Windows/Linux, command for Mac to select multiple values):</p>
 
 <form action="/questionnaire" method="POST">
     {% for question in questions %}
         <div style="margin-bottom: 20px;">
             <div style="margin-bottom: 5px">{{ question.text }}</div>
-            <select name="{{ question.id }}[]" multiple>
+            <select name="{{ question.id }}[]" multiple required>
                 {% for questionAnswerOption in question.questionAnswerOptions %}
                     <option value="{{ questionAnswerOption.id }}">{{ questionAnswerOption.text }}</option>
                 {% endfor %}
