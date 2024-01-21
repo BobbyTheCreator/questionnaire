@@ -5,5 +5,5 @@ Instruction:
 4. ```docker-compose up -d --build```
 5. ```docker-compose exec php-fpm bash```
 6. inside php-fpm container: ```composer install```
-7. inside php-fpm container: ```php bin/console doctrine:migrations:migrate```
+7. inside php-fpm container: ```php bin/console doctrine:migrations:migrate```. Press enter
 8. open and proceed with the test application: http://localhost:8005/questionnaire
